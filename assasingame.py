@@ -34,9 +34,13 @@ if __name__ == "__main__":
 
     email_list = [verizon_email, tmobile_email, sprint_email, att_email]
 
+    gmail_details = []
+
     with open("smtp_login.txt", "r+") as login_info:
-        gmail_sender = login_info[0]
-        gmail_passwd = login_info[1]
+        for i in login_info:
+            gmail_details.append(i)
+
+    gmail_sender, gmail_passwd = gmail_details[0], gmail_details[1]
 
     server = smtp_connect(gmail_sender, gmail_passwd)
 
